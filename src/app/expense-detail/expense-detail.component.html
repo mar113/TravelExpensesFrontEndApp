@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="row" style="margin-top:50px">
+        <div class="col-md-4">
+            <h2>Expense Details</h2>
+       <table>
+        <tr>
+            <td>Expense Name : </td>
+            <td>{{expenseObject.expenseName}}</td>
+        </tr>
+        <tr>
+            <td>Expense Description : </td>
+            <td>{{expenseObject.description}}</td>
+        </tr>
+        <tr>
+            <td>Expense vendor: </td>
+            <td>{{expenseObject.vendor}}</td>
+        </tr>
+        <tr>
+            <td>Expense Amount : </td>
+            <td>{{expenseObject.amount | currency}}</td>
+        </tr>
+       </table>
+    </div>
+    <div class="col-md-4">
+    <a routerLink="/expenses">Go back</a>
+    </div>
+    <div class="col-md-4"></div>
+    </div>
+</div>

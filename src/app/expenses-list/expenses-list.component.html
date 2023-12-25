@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="row">
+<h1>Save travels</h1>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Expense</th>
+            <th>Vendor</th>
+            <th>Amount</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let expens of expenses">
+            <td><a routerLink="#" (click)="details(expens.id)">{{expens.expenseName}}</a></td>
+            <td>{{expens.vendor}}</td>
+            <td>{{expens.amount | currency}}</td>
+            <td><button (click)="updateExpenseItem(expens.id)">edit</button><button class="btn btn-danger" (click)="deleteExpense(expens.id)">Delete</button></td>
+        </tr>
+    </tbody>
+</table>
+</div>
+<div class="row">
+<h1>Add an expense</h1>
+<app-expense></app-expense>
+</div>
+</div>

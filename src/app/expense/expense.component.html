@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="row">
+        <h2 *ngIf="id">Edit Expense</h2>
+        <div class="col-md-4">
+<form #expenseForm="ngForm" (ngSubmit)="expenseForm.valid && addExpenseItem()">
+
+      <label for="expenseName">Expense Name: </label>
+      <input type="text" class="form-control" name="expenseName" [(ngModel)]="expense.expenseName" required>
+      <div *ngIf="expenseForm.controls['expenseName'].invalid && (expenseForm.controls['expenseName'].dirty || expenseForm.controls['expenseName'].touched)">
+        <div *ngIf="expenseForm.controls['expenseName'].errors?.required"><p class="alert alert-danger">expense name  must not be blank</p></div>
+    </div>
+      <label for="vendor">Vendor </label>
+      <input type="text" class="form-control" name="vendor" [(ngModel)]="expense.vendor" required="required">
+      <div *ngIf="expenseForm.controls['vendor'].invalid && (expenseForm.controls['vendor'].dirty || expenseForm.controls['vendor'].touched)">
+        <div *ngIf="expenseForm.controls['vendor'].errors?.required"><p class="alert alert-danger">Vendor must not be blank</p></div>
+    </div>
+        <label for="amount">Amount </label>
+        <input type="number" class="form-control" name="amount" [(ngModel)]="expense.amount" required min="1">
+        <div *ngIf="expenseForm.controls['amount'].invalid && (expenseForm.controls['amount'].dirty || expenseForm.controls['amount'].touched)">
+            <div *ngIf="expenseForm.controls['amount'].errors?.required"><p class="alert alert-danger">Amount must not be blank</p></div>
+            <div *ngIf="expenseForm.controls['amount'].errors?.min"><p class="alert alert-danger">Amount must be greater than 0</p></div>
+        </div>
+
+        <label for="description">Description </label>
+        <textarea class="form-control" id="description" name="description" [(ngModel)]="expense.description" required="required"></textarea>
+        <div *ngIf="expenseForm.controls['description'].invalid && (expenseForm.controls['description'].dirty || expenseForm.controls['description'].touched)">
+            <div *ngIf="expenseForm.controls['description'].errors?.required"><p class="alert alert-danger">Description must not be blank</p></div>
+        </div>
+    <p>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </p>
+   
+  </form>
+</div>
+<div class="col-md-4" *ngIf="id">
+    <a routerLink="/expenses">Go back</a>
+    </div>
+    <div class="col-md-4"></div>
+  </div>
+</div>
